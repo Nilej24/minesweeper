@@ -9,6 +9,7 @@ public class HUDScript : MonoBehaviour
 
     public GameManager game;
     public TextMeshProUGUI flagCounter;
+    public TextMeshProUGUI timeCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,10 @@ public class HUDScript : MonoBehaviour
 
     public void UpdateFlagCount() {
         flagCounter.text = game.flags.ToString();
+    }
+
+    public void UpdateTimeCounter() {
+        timeCounter.text = ((int) game.time).ToString();
     }
 
 }

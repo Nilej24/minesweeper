@@ -11,7 +11,10 @@ public class GameManager : MonoBehaviour
     public int width;
     public int height;
     public int mines;
+
     public int flags;
+    public float time;
+
     public ZoneScript[,] grid;
 
     public GameObject zone;
@@ -30,7 +33,10 @@ public class GameManager : MonoBehaviour
         width = PlayerPrefs.GetInt("width");
         height = PlayerPrefs.GetInt("height");
         mines = PlayerPrefs.GetInt("mines");
+
         flags = mines;
+        time = 0f;
+
         grid = new ZoneScript[width, height];
 
         // fix camera
@@ -47,7 +53,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // update time
+        if (!over) {
+			time += Time.deltaTime;
+			HUDManager.UpdateTimeCounter();
+        }
     }
 
     // creates a new 'zone' gameObject and returns it
@@ -146,6 +156,8 @@ public class GameManager : MonoBehaviour
     private void Win() {
 
         Debug.Log("win");
+
+        over = true;
 
     }
 

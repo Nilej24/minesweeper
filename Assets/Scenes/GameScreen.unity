@@ -696,6 +696,7 @@ MonoBehaviour:
   height: 0
   mines: 0
   flags: 0
+  time: 0
   zone: {fileID: 7245190353900396363, guid: 72a96264b4cd1f34abf1ee62df28d2ee, type: 3}
   gameCamera: {fileID: 1352706835}
   WinScreen: {fileID: 0}
@@ -771,6 +772,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   game: {fileID: 1314117570}
   flagCounter: {fileID: 1293007340}
+  timeCounter: {fileID: 19996543}
 --- !u!1 &1352706835
 GameObject:
   m_ObjectHideFlags: 0
