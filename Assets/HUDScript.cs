@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverScreenScript : MonoBehaviour
+public class HUDScript : MonoBehaviour
 {
+
+    public GameManager game;
+    public TextMeshProUGUI flagCounter;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,10 @@ public class GameOverScreenScript : MonoBehaviour
 
     public void LoadMainMenu() {
         SceneManager.LoadScene("TitleScreen");
+    }
+
+    public void UpdateFlagCount() {
+        flagCounter.text = game.flags.ToString();
     }
 
 }

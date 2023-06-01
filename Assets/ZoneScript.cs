@@ -10,11 +10,13 @@ public class ZoneScript : MonoBehaviour
     public bool flagged = false;
 
     private GameManager game;
+    private HUDScript HUDManager;
 
     // Start is called before the first frame update
     void Start()
     {
         game = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        HUDManager = GameObject.Find("Game HUD").GetComponent<HUDScript>();
 
         ShowFlag(false);
         ChangeAppearance(true, false, false);
@@ -35,10 +37,24 @@ public class ZoneScript : MonoBehaviour
 
     public void Flag() {
 
-        if (revealed) return;
+        if (game.over || revealed) return;
 
-        flagged = !flagged;
+        if (flagged) {
+
+            flagged = false;
+            game.flags++;
+
+        } else if (!flagged) {
+
+            if (game.flags <= 0) return;
+
+            flagged = true;
+            game.flags--;
+
+        }
+
         ShowFlag(flagged);
+        HUDManager.UpdateFlagCount();
 
     }
 
