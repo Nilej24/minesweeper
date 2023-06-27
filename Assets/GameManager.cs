@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject zone;
     public GameObject gameCamera;
-    public GameObject WinScreen;
     public HUDScript HUDManager;
+    public GameObject SaveButton;
 
     public float UISize;
 
@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
     // called when game is won
     private void Win() {
 
-        Debug.Log("win");
+        SaveButton.SetActive(true);
 
         over = true;
 

@@ -18,14 +18,17 @@ public class TitleScreenScript : MonoBehaviour
     }
 
     public void EasyStart() {
+		PlayerPrefs.SetInt("difficulty", 1);
         Start(10, 8, 10);
     }
 
     public void MediumStart() {
+		PlayerPrefs.SetInt("difficulty", 2);
         Start(18, 14, 40);
     }
 
     public void HardStart() {
+		PlayerPrefs.SetInt("difficulty", 3);
         Start(24, 20, 99);
     }
 
@@ -33,6 +36,8 @@ public class TitleScreenScript : MonoBehaviour
         PlayerPrefs.SetInt("width", width);
         PlayerPrefs.SetInt("height", height);
         PlayerPrefs.SetInt("mines", mines);
+
+        PlayerPrefs.SetInt("score", 999);
 
         SceneManager.LoadScene("GameScreen");
     }
