@@ -155,6 +155,8 @@ public class GameManager : MonoBehaviour
     // called when game is won
     private void Win() {
 
+        PlayerPrefs.SetInt("time", (int) time);
+
         SaveButton.SetActive(true);
 
         over = true;

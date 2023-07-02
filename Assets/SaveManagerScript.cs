@@ -8,10 +8,28 @@ public class SaveManagerScript : MonoBehaviour
     private int currentChar = 1;
     public TextMeshProUGUI char1, char2, char3;
 
+    public TextMeshProUGUI difficulty, time;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        // show game difficulty on screen
+        switch (PlayerPrefs.GetInt("difficulty")) {
+
+            case 1:
+                difficulty.text = "Easy";
+                break;
+            case 2:
+                difficulty.text = "Medium";
+                break;
+            case 3:
+                difficulty.text = "Hard";
+                break;
+
+        }
+
+        // show player's time on screen
+        time.text = PlayerPrefs.GetInt("time").ToString();
     }
 
     // Update is called once per frame
